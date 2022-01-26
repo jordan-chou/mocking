@@ -1,12 +1,6 @@
-import os
+import pyperclip as pc
 
 text = input("Enter text: ")
-
-# copy text to clipboard
-# https://stackoverflow.com/questions/579687/how-do-i-copy-a-string-to-the-clipboard
-def addToClipBoard(text):
-    command = 'echo | set /p nul=' + text.strip() + '| clip'
-    os.system(command)
 
 words = text.split(" ")
 newWords = []
@@ -23,7 +17,7 @@ for word in words:
           i += 1
     newWords.append(newWord)
 
-addToClipBoard(" ".join(newWords))
+pc.copy(" ".join(newWords))
 
 print("""
       .--..--..--..--..--..--.
