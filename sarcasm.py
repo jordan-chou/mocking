@@ -18,7 +18,8 @@ for word in words:
             newWord += letter.upper()
         else:
             newWord += letter.lower()
-        i += 1
+        if letter.isalpha():
+          i += 1
     newWords.append(newWord)
 
 addToClipBoard(" ".join(newWords))
