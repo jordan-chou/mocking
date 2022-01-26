@@ -1,4 +1,11 @@
+import os
+
 text = input("Enter text: ")
+
+# copy text to clipboard
+def addToClipBoard(text):
+    command = 'echo | set /p nul=' + text.strip() + '| clip'
+    os.system(command)
 
 words = text.split(" ")
 newWords = []
@@ -13,6 +20,9 @@ for word in words:
             newWord += letter.lower()
         i += 1
     newWords.append(newWord)
+
+addToClipBoard(" ".join(newWords))
+
 print("""
       .--..--..--..--..--..--.
     .' \  (`._   (_)     _   \\
@@ -36,3 +46,5 @@ print("""
     LGB      ||_.-.   ||_.-.
             (_.--__) (_.--__)
     """.format(quote=" ".join(newWords)))
+
+print('Copied "{quote}" to clipboard'.format(quote=" ".join(newWords)))
