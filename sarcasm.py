@@ -3,6 +3,7 @@ import os
 text = input("Enter text: ")
 
 # copy text to clipboard
+# https://stackoverflow.com/questions/579687/how-do-i-copy-a-string-to-the-clipboard
 def addToClipBoard(text):
     command = 'echo | set /p nul=' + text.strip() + '| clip'
     os.system(command)
